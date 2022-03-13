@@ -40,9 +40,6 @@ public class Animal {
 	@Column(name = "comment")
 	private String comment;
 	
-	//@Column(name = "human_id")
-	//private int human;
-	
 	@ManyToOne()
 	@JoinColumn(name = "human_id")
 	private Human human;

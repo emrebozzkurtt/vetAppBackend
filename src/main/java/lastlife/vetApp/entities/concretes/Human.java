@@ -1,11 +1,16 @@
 package lastlife.vetApp.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "humans")
-//@JsonIgnoreProperties({"hibernateLazyInitializer","handler","animals"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","animals"})
 public class Human {
 	
 	@Id
@@ -39,6 +44,6 @@ public class Human {
 	@Column(name = "email")
 	private String email;
 	
-	//@OneToMany(mappedBy = "animals")
-	//private List<Animal> animals;
+	@OneToMany(mappedBy = "human")
+	private List<Animal> animals;
 }
